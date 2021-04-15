@@ -1,0 +1,94 @@
+<!-- <form (ngSubmit)="saveProgram()" [formGroup]="programForm">
+    <div class="mt-5">
+        <select name="" id="" formControlName="carreraId">
+            <option value="{{item.id}}" *ngFor="let item of carreras">{{item.nombre}}</option>
+        </select> -->
+<!-- <input type="text" name="" id="" placeholder="materia" formControlName="materia"> -->
+<!-- <input type="hidden" name="" value="{{profId}}" formControlName="profesorId"> -->
+<!-- <select name="" id="" formControlName="cicloId">
+            <option value="{{item.id}}" *ngFor="let item of ciclo">{{item.nombre}}</option>
+        </select> -->
+<!-- <select name="" id="" formControlName="semestreId">
+            <option value="{{item.id}}" *ngFor="let item of semestre">{{item.nombre}}</option>
+        </select> -->
+<!-- <select name="" id="" formControlName="turnoId">
+            <option value="{{item.id}}" *ngFor="let item of turno">{{item.nombre}}</option>
+        </select> 
+        <button>Enviar</button>
+    </div>
+</form> -->
+
+<form (ngSubmit)="saveProgram()" [formGroup]="programForm">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+            <div class="max-w-md mx-auto">
+                <div class="flex items-center">
+                    <div class="block font-semibold text-3x1 self-start text-gray-700">
+                        <h2 class="leading-relaxed">Nuevo programa</h2>
+                    </div>
+                </div>
+                <div class="divide-y divide-gray-200">
+                    <div class="py-4 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Selecciona una carrera</label>
+                            <select name="" id="" formControlName="carreraId"
+                                class="px-4 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600">
+                                <option value="{{ item.id }}" *ngFor="let item of carreras">
+                                    {{ item.nombre }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Asignatura</label>
+                            <input type="text" name="" id="" formControlName="materia"
+                                class="px-4 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600" />
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Ciclo escolar</label>
+                            <select name="" id="" formControlName="cicloId"
+                                class="px-4 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600">
+                                <option value="{{ item.id }}" *ngFor="let item of ciclo">
+                                    {{ item.nombre }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Semestre</label>
+                            <select name="" id="" formControlName="semestreId"
+                                class="px-4 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600">
+                                <option value="{{ item.id }}" *ngFor="let item of semestre">
+                                    {{ item.nombre }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Turno</label>
+                            <select name="" id="" formControlName="turnoId"
+                                class="px-4 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600">
+                                <option value="{{ item.id }}" *ngFor="let item of turno">
+                                    {{ item.nombre }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex items-center space-x-4">
+                        <a class="flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none"
+                            [routerLink]="['/profhome']">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            Cancel
+                        </a>
+                        <button
+                            class="bg-gradient-to-r from-green-400 to-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"
+                            >
+                            Enviar
+                        </button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
