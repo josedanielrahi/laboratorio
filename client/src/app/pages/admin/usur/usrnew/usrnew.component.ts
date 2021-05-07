@@ -45,7 +45,6 @@ export class UsrnewComponent implements OnInit {
     if (this.usrForm.valid) {
       const data = this.usrForm.value;
       this.userSvc.insertUsr(data).subscribe((res) => {
-        console.log(res);
       });
     }
     this.router.navigate(['usrlist']);

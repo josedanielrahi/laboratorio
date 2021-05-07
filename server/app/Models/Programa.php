@@ -14,7 +14,8 @@ class Programa extends Model
         'cicloId',
         'semestreId',
         'turnoId',
-        'profesorId'
+        'profesorId',
+        'horario',
     ];
     use HasFactory;
 }

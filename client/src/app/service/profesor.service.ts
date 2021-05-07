@@ -18,13 +18,30 @@ export class ProfesorService {
   deleteProf(id: any) {
     return this.httpClient.put(`${this.base}deleteprof/${id}`, null);
   }
-  exist(id: any){
+  exist(id: any) {
     return this.httpClient.get(`${this.base}profesorByIdUsr/${id}`);
   }
-  programaByIdProf(id : any){
+  programaByIdProf(id: any) {
     return this.httpClient.get(`${this.base}programaByIdProf/${id}`);
   }
-  addprofesor(form){
-    return this.httpClient.post(`${this.base}addprofesor`,form);
+  addprofesor(form) {
+    return this.httpClient.post(`${this.base}addprofesor`, form);
   }
+  profesorByIdUsr(id: any) {
+    return this.httpClient.get(`${this.base}profesorByIdUsr/${id}`);
+  }
+  programaByIdUsr(id: any) {
+    return this.httpClient.get(`${this.base}programaByIdUsr/${id}`);
+  }
+  programaById(id: any) {
+    return this.httpClient.get(`${this.base}progrmaById/${id}`);
+  }
+  detailsProgramaById(id: any){
+    return this.httpClient.get(`${this.base}progrmadetaislbyid/${id}`);
+  }
+  deleteDetails(id: any) {
+    return this.httpClient.put(`${this.base}deletedetailsprogram/${id}`, null);
+  }
+
+
 }

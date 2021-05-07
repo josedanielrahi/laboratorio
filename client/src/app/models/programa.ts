@@ -5,4 +5,5 @@ export class Programa {
     semestreId : any;
     turnoId : any;
     profesorId : any;
+    horario: string;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 import { ProfesorService } from 'src/app/service/profesor.service';
 
 @Component({
@@ -8,7 +9,13 @@ import { ProfesorService } from 'src/app/service/profesor.service';
 })
 export class ListComponent implements OnInit {
   prodData: any;
-  constructor(private profesoresSvc: ProfesorService) {}
+  id: any;
+  navigationExtras: NavigationExtras = {
+    state: {
+      value: null,
+    },
+  };
+  constructor(private profesoresSvc: ProfesorService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProf();
@@ -19,14 +26,15 @@ export class ListComponent implements OnInit {
       this.prodData = res;
     });
   }
-  goToDetails(id: any): void {
-    console.log('detalles registro con el id', id);
+  goToDetails(idusr: any): void {
+    console.log(idusr);
+    this.router.navigate(['/detailsprof',idusr]);
   }
   goToEdit(id: any): void {
-    console.log('editar registro con el id', id);
+    console.log('Edit');
   }
   goToDelete(id: any) {
-    return this.profesoresSvc.deleteProf(id).subscribe(res =>{
+    return this.profesoresSvc.deleteProf(id).subscribe((res) => {
       this.getProf();
     });
   }

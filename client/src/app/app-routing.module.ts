@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/homepage', pathMatch: 'full'},
+  {path: 'prgramadetails', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'detailsprof', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'detailsprog', redirectTo: '/profhome', pathMatch: 'full'},
+  {path: 'newdetalle', redirectTo: '/profhome', pathMatch: 'full'},
   {
     path: 'dashboard',
     loadChildren: () =>
@@ -15,6 +20,11 @@ const routes: Routes = [
   { path: 'newprograma', loadChildren: () => import('./pages/profe/programa/newprogama/newprogama.module').then(m => m.NewprogamaModule) },
   { path: 'profhome', loadChildren: () => import('./pages/profe/home/home.module').then(m => m.HomeModule) },
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
+  { path: 'detailsprof/:id', loadChildren: () => import('./pages/admin/prof/details/details.module').then(m => m.DetailsModule) },
+  { path: 'homepage', loadChildren: () => import('./components/homepage/homepage.module').then(m => m.HomepageModule) },
+  { path: 'prgramadetails/:id', loadChildren: () => import('./pages/admin/prof/programa/programa.module').then(m => m.ProgramaModule) },
+  { path: 'detailsprog/:id', loadChildren: () => import('./pages/profe/programa/detalle/detalle.module').then(m => m.DetalleModule) },
+  { path: 'newdetalle/:id', loadChildren: () => import('./pages/profe/programa/newdetalle/newdetalle.module').then(m => m.NewdetalleModule) },
 ];
 
 @NgModule({

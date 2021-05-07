@@ -56,12 +56,17 @@ Route::put('deleteprof/{id}', 'App\Http\Controllers\ProfesorController@deletePro
 Route::post('addprofesor', 'App\Http\Controllers\ProfesorController@addProfesor');
 Route::get('profesorByIdUsr/{id}', 'App\Http\Controllers\ProfesorController@getProfesorByIdUsr');
 Route::get('programaByIdProf/{id}','App\Http\Controllers\ProfesorController@getProgramaByIdProf');
+Route::get('programaByIdUsr/{id}','App\Http\Controllers\ProfesorController@getProgramaByIdUsr');
 //Programa
 Route::get('semestre', 'App\Http\Controllers\ProgramaController@getSemestres');
 Route::get('turno', 'App\Http\Controllers\ProgramaController@getTurno');
 Route::get('ciclo', 'App\Http\Controllers\ProgramaController@getCiclo');
 Route::get('lab', 'App\Http\Controllers\ProgramaController@getLab');
 Route::post('addprograma', 'App\Http\Controllers\ProgramaController@addPrograma');
+Route::post('addprogramadetalle', 'App\Http\Controllers\ProgramaController@addProgramaDetails');
+Route::put('deletedetailsprogram/{id}','App\Http\Controllers\ProgramaController@deleteProgramaDetails');
+Route::get('progrmadetaislbyid/{id}', 'App\Http\Controllers\ProgramaController@detailsPrograma');
+Route::get('progrmaById/{id}', 'App\Http\Controllers\ProgramaController@getProgramaById');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

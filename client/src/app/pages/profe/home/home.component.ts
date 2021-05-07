@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateExistProfesor(localStorage.getItem('id_usr'));
-    this.getProgramas();
+    this.getProgramas(localStorage.getItem('id_usr'));
 
   }
 
@@ -37,8 +37,6 @@ export class HomeComponent implements OnInit {
       }else{
         this.usrState=1;
         this.profesor=res;
-        console.log(this.profesor
-          );
         localStorage.setItem('prof_id',this.profesor[0].id);
       }
     });
@@ -47,7 +45,6 @@ export class HomeComponent implements OnInit {
     console.log('form');
     if(this.profeForm.valid){
       const data = this.profeForm.value;
-      console.log(data)
       this.profesorSvc.addprofesor(data).subscribe(res => {
         this.router.navigate(['/profhome']);
       })
@@ -57,10 +54,12 @@ export class HomeComponent implements OnInit {
 
   }
 
-  getProgramas(){
+  getProgramas(id: any){
     if(localStorage.getItem('prof_id')!=null){
-    // this.profesorSvc.programaByIdProf(localStorage.getItem('prof_id')).subscribe(res =>{
-    // });
+      this.profesorSvc.programaByIdUsr(id).subscribe(res => {
+        this.programas=res;
+        
+      });
     }
 
   }
@@ -70,6 +69,10 @@ export class HomeComponent implements OnInit {
       apellidos : ['',[Validators.required]],
       usrId : localStorage.getItem('id_usr'),
     });
+  }
+  goToDetails(id: any){
+    this.router.navigate(['detailsprog',id]);
+
   }
 
 }

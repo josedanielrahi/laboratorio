@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Programa } from 'src/app/models/programa';
 
 
@@ -20,12 +21,13 @@ export class NewprogamaComponent implements OnInit {
     semestre : any;
     turno:any;
     programForm : FormGroup;
-    profId= 7;
+    profId= localStorage.getItem('prof_id');
 
   constructor(
     private programaSvc: ProgramaService,
-    private carrearSvc : CarreraService,
-    private fb : FormBuilder,
+    private carrearSvc: CarreraService,
+    private fb: FormBuilder,
+    private router: Router, 
     ) {this.initForm();}
 
   ngOnInit(): void {
@@ -54,7 +56,7 @@ export class NewprogamaComponent implements OnInit {
     if(this.programForm.valid){
       const data = this.programForm.value;
       this.programaSvc.addProgram(data).subscribe(res =>{
-        console.log(res);
+        this.router.navigate(['']);
       });
     }
   }
@@ -65,6 +67,7 @@ export class NewprogamaComponent implements OnInit {
         cicloId : ['',[Validators.required]],
         semestreId : ['',[Validators.required]],
         turnoId : ['',[Validators.required]],
+        horario: ['',[Validators.required]],
         profesorId : this.profId,
     });
   }

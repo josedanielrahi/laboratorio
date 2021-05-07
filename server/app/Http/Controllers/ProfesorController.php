@@ -41,17 +41,36 @@ class ProfesorController extends Controller
     }
     public function getProfesorByIdUsr($id)
     {
-        $query = DB::table('profesores')->where('usrId','=',$id)->get();
+        $query = DB::table('profesores')->where('usrId', '=', $id)->get();
         if (is_null($query)) {
             return response()->json(["message" => "Elemento no encontrado"], 404);
         }
         return response()->json($query, 201);
     }
-    public function getProgramaByIdProf($id){
-        $query = DB::table('programa')->where('profesorId','=',$id)->first();
-        if(is_null($query)){
-            return response()->json(["message" => "Elemento no encontraqdo"],404);
+    public function getProgramaByIdProf($id)
+    {
+        $query = DB::table('programa')->where('profesorId', '=', $id)->first();
+        if (is_null($query)) {
+            return response()->json(["message" => "Elemento no encontraqdo"], 404);
         }
-        return response()->json($query,201);
+        return response()->json($query, 201);
+    }
+    public function getProgramaByIdUsr($id)
+    {
+        $query = DB::table('programa AS p')
+            ->join('profesores AS ps', 'p.profesorId', '=', 'ps.id')
+            ->join('carreras AS c', 'p.carreraId', '=', 'c.id')
+            ->join('ciclo AS co', 'p.cicloId', '=', 'co.id')
+            ->join('semestre AS s', 'p.semestreId', '=', 's.id')
+            ->join('turno AS t','p.turnoId','=','t.id')
+            ->where('ps.usrId', '=', $id)
+            ->select('p.materia','p.id AS programaId','ps.nombre', 
+            'ps.apellidos', 'c.nombre AS carreraNombre', 'co.nombre AS cicloNombre', 's.nombre AS semestreNombre', 
+            't.nombre AS turnoValue')
+            ->get();
+        if (is_null($query)) {
+            return response()->json(["message" => "Elemento no encontraqdo"], 404);
+        }
+        return response()->json($query, 201);
     }
 }

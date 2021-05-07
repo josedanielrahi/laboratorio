@@ -25,4 +25,7 @@ export class ProgramaService {
   public addProgram (form){
     return this.http.post(`${this.base}addprograma`,form);
   }
+  public addDetalle (form){
+    return this.http.post(`${this.base}addprogramadetalle`,form);
+  }
 }

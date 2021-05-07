@@ -41,9 +41,73 @@
           </div>
     </form>
 </div>
-<div *ngIf="usrState==1">
-  <div class="container mt-5">
-    <a [routerLink]="['/newprograma']">Nuevo programa</a>
-</div>
-    <p>Mis progrmas</p>
+<div *ngIf="usrState==1" class="md:container md:mx-auto mt-4">
+      <h1 class="text-center text-2xl p-2">Progrmas asociadoos: </h1>
+
+  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+    <p class="justify-self-end mb-5">
+        <a [routerLink]="['/newprograma']" class=" px-3 py-2 text-white bg-gradient-to-r from-green-400 to-blue-500 rounded-md focus:bg-indigo-600 focus:outline-none">Nuevo programa</a>
+    </p>
+      <div class="inline-block min-w-full shadow rounded-lg">
+          <table class="min-w-full leading-normal bg-black">
+              <thead class="">
+                  <tr>
+                      <th
+                          class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                          Carrera
+                      </th>
+                      <th
+                          class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                         Materia 
+                      </th>
+                      <th
+                          class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                          Ciclo
+                      </th>
+                      <th
+                          class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                          Semestre
+                      </th>
+                      <th
+                          class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                          Turtno
+                      </th>
+                      <th
+                          class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                          Detalle
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of programas">
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <p class="text-gray-900 whitespace-no-wrap">{{ item.carreraNombre}}</p>
+                      </td>
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <p class="text-gray-900 whitespace-no-wrap">{{ item.materia}}</p>
+                      </td>
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <p class="text-gray-900 whitespace-no-wrap">{{ item.cicloNombre}}</p>
+                      </td>
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <p class="text-gray-900 whitespace-no-wrap">{{ item.semestreNombre}}</p>
+                      </td>
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <p class="text-gray-900 whitespace-no-wrap">{{ item.turnoValue}}</p>
+                      </td>
+                      <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <button
+                              class="mr-1 inline-block p-2 text-center text-white transition bg-blue-500 rounded-full shadow ripple hover:shadow-lg hover:bg-blue-600 "
+                              (click)="goToDetails(item.programaId)">
+                              <span class="material-icons">
+                                  calendar_today
+                              </span>
+                          </button>
+                      </td>
+
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
 </div>
