@@ -215,9 +215,9 @@
         <div class="text-3xl font-dark font-bold text-center mb-0">Prgrama: </div>
         <div class="flex justify-center px-6 my-12 text-gray-700">
             <!-- Row -->
-            <div class="lg:w-10/12 flex">
+            <div class="lg:w-1/2 flex">
                 <!-- Col -->
-                <div class="w-full" *ngFor="let item of dataprograma">
+                <!-- <div class="w-full" *ngFor="let item of dataprograma">
                     <div>
                         <p class="text-gray-800 mb-1"><b>Carrera:</b> {{item.carreraNombre}}</p>
                         <p class="text-gray-800 mb-1"><b>Materia:</b> {{item.materia}}</p>
@@ -228,7 +228,7 @@
                         <p class="text-gray-800 mb-1"><b>Turno:</b> {{item.turnoValue}}</p>
                         <p class="tetxt-gray-800 mb-1"><b>Horario: </b>{{item.horario}}</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- Col -->
                 <div class="w-full">
                     <form (ngSubmit)="saveDetalle()" [formGroup]="detalleForm">
@@ -237,7 +237,44 @@
                                 <div class="max-w-md mx-auto">
                                     <div class="flex items-center">
                                         <div class="block font-semibold text-3x1 self-start text-gray-700">
-                                            <h2 class="leading-relaxed">Agrergar actividades al programa </h2>
+
+                                        </div>
+                                        <div class="w-full py-1">
+                                            <div class="flex">
+                                                <div class="w-1/2">
+                                                    <div class="relative mb-2">
+                                                        <div
+                                                            class="w-10 h-10 mx-auto bg-green-500 rounded-full text-lg text-white flex items-center">
+                                                            <span class="material-icons text-center text-white w-full">
+                                                                post_add
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-xs text-center md:text-base">Actividades</div>
+                                                </div>
+                                                <div class="w-1/2">
+                                                    <div class="relative mb-2">
+                                                        <div class="absolute flex align-center items-center align-middle content-center"
+                                                            style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
+                                                            <div
+                                                                class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
+                                                                <div class="w-0 bg-green-300 py-1 rounded"
+                                                                    style="width: 50%;"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div
+                                                            class="w-10 h-10 mx-auto bg-white border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
+                                                            <span
+                                                                class="material-icons text-center text-gray-600 w-full">
+                                                                check_circle_outline
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="text-xs text-center md:text-base">Finalizar</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="divide-gray-200">
@@ -282,7 +319,7 @@
                                         </div>
                                         <div class=" flex items-center">
                                             <a class="flex justify-center items-center w-full"
-                                                [routerLink]="['/profhome']">
+                                                (click)="finish()">
                                                 <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round"

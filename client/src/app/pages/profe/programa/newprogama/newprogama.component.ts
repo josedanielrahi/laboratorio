@@ -32,7 +32,7 @@ export class NewprogamaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    
+    console.log(localStorage.getItem('prof_id'));
   }
 
   getData() {
@@ -56,7 +56,9 @@ export class NewprogamaComponent implements OnInit {
     if(this.programForm.valid){
       const data = this.programForm.value;
       this.programaSvc.addProgram(data).subscribe(res =>{
-        this.router.navigate(['']);
+        this.programaSvc.last(localStorage.getItem('prof_id')).subscribe(res=>{
+          this.router.navigate(['newdetalle/',res[0].id]);
+        })
       });
     }
   }
@@ -71,4 +73,5 @@ export class NewprogamaComponent implements OnInit {
         profesorId : this.profId,
     });
   }
+
 }

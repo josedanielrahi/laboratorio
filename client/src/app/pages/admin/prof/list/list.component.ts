@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ProfesorService } from 'src/app/service/profesor.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
   selector: 'app-list',
@@ -10,13 +11,10 @@ import { ProfesorService } from 'src/app/service/profesor.service';
 export class ListComponent implements OnInit {
   prodData: any;
   id: any;
-  navigationExtras: NavigationExtras = {
-    state: {
-      value: null,
-    },
-  };
-  constructor(private profesoresSvc: ProfesorService, private router: Router) {}
+  collection: any[] ;
 
+  constructor(private profesoresSvc: ProfesorService, private router: Router) {}
+  p : number = 1;
   ngOnInit(): void {
     this.getProf();
   }
@@ -28,7 +26,7 @@ export class ListComponent implements OnInit {
   }
   goToDetails(idusr: any): void {
     console.log(idusr);
-    this.router.navigate(['/detailsprof',idusr]);
+    this.router.navigate(['/detailsprof', idusr]);
   }
   goToEdit(id: any): void {
     console.log('Edit');
@@ -38,4 +36,5 @@ export class ListComponent implements OnInit {
       this.getProf();
     });
   }
+
 }

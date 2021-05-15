@@ -19,7 +19,6 @@
   <div class="menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
     <div class="text-md font-bold text-blue-700 lg:flex-grow">
     </div>
-    <!-- This is an example component -->
 
     <div class="flex" *ngIf="rol==null">
       <a [routerLink]="['/login']"
@@ -27,8 +26,15 @@
 
     </div>
     <div class="flex" *ngIf="rol=='1' || rol=='2'">
+    
+        <div *ngIf="rol=='1'">
+            <a [routerLink]="['/dashboard']" class="block text-md px-4 py-2 rounded text-white ml-2 font-bold hover:text-white mt-4 hover:bg-green-700 lg:mt-0">Dashboard</a>
+        </div>
+        <div *ngIf="rol=='2'">
+          <a [routerLink]="['/profhome']" class="block text-md px-4 py-2 rounded text-white ml-2 font-bold hover:text-white mt-4 hover:bg-green-700 lg:mt-0">Dashboard</a>
+      </div>
       <a (click)="logout()"
-        class="block text-md px-4 py-2 rounded text-white ml-2 font-bold hover:text-white mt-4 hover:bg-green-700 lg:mt-0">Salir</a>
+      class="block text-md px-4 py-2 rounded text-white ml-2 font-bold hover:text-white mt-4 hover:bg-green-700 lg:mt-0">Salir</a>
     </div>
   </div>
 

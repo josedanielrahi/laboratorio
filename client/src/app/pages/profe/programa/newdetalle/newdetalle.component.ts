@@ -1,3 +1,4 @@
+import  Swal  from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProgramaService } from 'src/app/service/programa.service';
 import { ProfesorService } from 'src/app/service/profesor.service';
@@ -89,6 +90,14 @@ export class NewdetalleComponent implements OnInit {
     this.profesorSvc.programaById(id).subscribe(res=> {
       this.dataprograma=res;
     })
+  }
+  finish(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Exito!',
+      text: 'Tus actividades fueron agregadas correctamente',
+    })
+    this.router.navigate(['/profhome']);
   }
 
 }

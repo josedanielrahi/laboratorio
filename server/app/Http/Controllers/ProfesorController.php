@@ -66,7 +66,7 @@ class ProfesorController extends Controller
             ->where('ps.usrId', '=', $id)
             ->select('p.materia','p.id AS programaId','ps.nombre', 
             'ps.apellidos', 'c.nombre AS carreraNombre', 'co.nombre AS cicloNombre', 's.nombre AS semestreNombre', 
-            't.nombre AS turnoValue')
+            't.nombre AS turnoValue','p.horario')
             ->get();
         if (is_null($query)) {
             return response()->json(["message" => "Elemento no encontraqdo"], 404);

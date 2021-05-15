@@ -7,3 +7,35 @@
 @import 'tailwindcss/utilities';
 //material icon 
 @import 'material-icons/iconfont/material-icons.scss';
+//Animate.css
+
+
+.animated {
+    animation-duration: 2.0s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.fadeIn{
+    animation-name: fadeIn;
+}
+@keyframes fadeDown {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+.fadeDown{
+    animation-name: fadeDown;
+}

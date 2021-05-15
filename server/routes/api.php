@@ -52,7 +52,7 @@ Route::put('validate/{usr}/{psw}', 'App\Http\Controllers\UsuariosController@vali
 //Profesor
 Route::get('profesores', 'App\Http\Controllers\ProfesorController@getProfesores');
 Route::get('profesorById/{id}', 'App\Http\Controllers\ProfesorController@getProfesorById');
-Route::put('deleteprof/{id}', 'App\Http\Controllers\ProfesorController@deleteProfesor');
+Route::delete('deleteprof/{id}', 'App\Http\Controllers\ProfesorController@deleteProfesor');
 Route::post('addprofesor', 'App\Http\Controllers\ProfesorController@addProfesor');
 Route::get('profesorByIdUsr/{id}', 'App\Http\Controllers\ProfesorController@getProfesorByIdUsr');
 Route::get('programaByIdProf/{id}','App\Http\Controllers\ProfesorController@getProgramaByIdProf');
@@ -64,9 +64,14 @@ Route::get('ciclo', 'App\Http\Controllers\ProgramaController@getCiclo');
 Route::get('lab', 'App\Http\Controllers\ProgramaController@getLab');
 Route::post('addprograma', 'App\Http\Controllers\ProgramaController@addPrograma');
 Route::post('addprogramadetalle', 'App\Http\Controllers\ProgramaController@addProgramaDetails');
-Route::put('deletedetailsprogram/{id}','App\Http\Controllers\ProgramaController@deleteProgramaDetails');
+Route::delete('deletedetailsprogram/{id}','App\Http\Controllers\ProgramaController@deleteProgramaDetails');
+Route::delete('deleteprograma/{id}','App\Http\Controllers\ProgramaController@deletePrograma');
 Route::get('progrmadetaislbyid/{id}', 'App\Http\Controllers\ProgramaController@detailsPrograma');
 Route::get('progrmaById/{id}', 'App\Http\Controllers\ProgramaController@getProgramaById');
+Route::get('progrmaByIdValue/{id}', 'App\Http\Controllers\ProgramaController@getProgramaByIdValue');
+Route::get('lastInsertUsr/{id}', 'App\Http\Controllers\ProgramaController@lastInsertUsr');
+Route::put('updateprograma/{id}','App\Http\Controllers\ProgramaController@updatePrograma');
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

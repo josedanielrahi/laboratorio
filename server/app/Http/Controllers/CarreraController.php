@@ -38,7 +38,7 @@ class CarreraController extends Controller
         $carrera->update($request->all());
         return response($carrera, 201);
     }
-    //actualizar carrera
+    //eliminar carrera
     public function deletecarrera(Request $request, $id)
     {
         $carrera =  Carreras::find($id);

@@ -1,6 +1,8 @@
+import  Swal  from 'sweetalert2';
 import { ProfesorService } from 'src/app/service/profesor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-detalle',
@@ -10,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class DetalleComponent implements OnInit {
   programas: any;
   dataprograma: any;
+  id: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -37,5 +40,32 @@ export class DetalleComponent implements OnInit {
       this.dataprograma = res;
       console.log(this.dataprograma);
     });
+  }
+  goToAddActiviti(){
+    this.id=this.route.snapshot.params.id;
+    this.router.navigate(['newdetalle/',this.id]);
+  }
+  delete(id:any){
+    Swal.fire({
+      title: 'Estas seguro que lo quieres eliminar?',
+      text: "Esta operacion es irrebersible!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.profesorSvc.deleteDetails(id).subscribe(res =>{
+          this.ngOnInit();
+        });
+        Swal.fire(
+          'Eliminado!',
+          'Operacion realizada con exito.',
+          'success'
+        )
+      }
+    })
   }
 }

@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { UsuarioService } from './../../../../service/usuario.service';
 
@@ -5,6 +6,7 @@ import { Usuario } from './../../../../models/Usuario';
 import { RolService } from 'src/app/service/rol.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-usrnew',
@@ -45,6 +47,11 @@ export class UsrnewComponent implements OnInit {
     if (this.usrForm.valid) {
       const data = this.usrForm.value;
       this.userSvc.insertUsr(data).subscribe((res) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Exito!',
+          text: 'Tu peticion se realizo con satisfacción',
+        })
       });
     }
     this.router.navigate(['usrlist']);

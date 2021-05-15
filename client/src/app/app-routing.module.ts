@@ -7,6 +7,7 @@ const routes: Routes = [
   {path: 'detailsprof', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'detailsprog', redirectTo: '/profhome', pathMatch: 'full'},
   {path: 'newdetalle', redirectTo: '/profhome', pathMatch: 'full'},
+  {path: 'editprog', redirectTo: '/profhome', pathMatch: 'full'},
   {
     path: 'dashboard',
     loadChildren: () =>
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'prgramadetails/:id', loadChildren: () => import('./pages/admin/prof/programa/programa.module').then(m => m.ProgramaModule) },
   { path: 'detailsprog/:id', loadChildren: () => import('./pages/profe/programa/detalle/detalle.module').then(m => m.DetalleModule) },
   { path: 'newdetalle/:id', loadChildren: () => import('./pages/profe/programa/newdetalle/newdetalle.module').then(m => m.NewdetalleModule) },
+  { path: 'editprog/:id', loadChildren: () => import('./pages/profe/programa/editprograma/editprograma.module').then(m => m.EditprogramaModule) },
 ];
 
 @NgModule({

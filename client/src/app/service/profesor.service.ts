@@ -40,7 +40,10 @@ export class ProfesorService {
     return this.httpClient.get(`${this.base}progrmadetaislbyid/${id}`);
   }
   deleteDetails(id: any) {
-    return this.httpClient.put(`${this.base}deletedetailsprogram/${id}`, null);
+    return this.httpClient.delete(`${this.base}deletedetailsprogram/${id}`);
+  }
+  deletePrograma(id: any){
+    return this.httpClient.delete(`${this.base}deleteprograma/${id}`);
   }
 
 

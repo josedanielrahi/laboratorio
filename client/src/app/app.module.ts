@@ -9,11 +9,15 @@ import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/share/header/header.component';
 import { FormsModule } from '@angular/forms';
-// const appRoutes: Routes = [{ path: '', component: CardComponent }];
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
+
 @NgModule({
   declarations: [AppComponent, CardComponent, HeaderComponent],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     HttpClientModule,
     AppRoutingModule,
     CardModule,

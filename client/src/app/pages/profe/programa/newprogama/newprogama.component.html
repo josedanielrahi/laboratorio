@@ -1,37 +1,49 @@
-<!-- <form (ngSubmit)="saveProgram()" [formGroup]="programForm">
-    <div class="mt-5">
-        <select name="" id="" formControlName="carreraId">
-            <option value="{{item.id}}" *ngFor="let item of carreras">{{item.nombre}}</option>
-        </select> -->
-<!-- <input type="text" name="" id="" placeholder="materia" formControlName="materia"> -->
-<!-- <input type="hidden" name="" value="{{profId}}" formControlName="profesorId"> -->
-<!-- <select name="" id="" formControlName="cicloId">
-            <option value="{{item.id}}" *ngFor="let item of ciclo">{{item.nombre}}</option>
-        </select> -->
-<!-- <select name="" id="" formControlName="semestreId">
-            <option value="{{item.id}}" *ngFor="let item of semestre">{{item.nombre}}</option>
-        </select> -->
-<!-- <select name="" id="" formControlName="turnoId">
-            <option value="{{item.id}}" *ngFor="let item of turno">{{item.nombre}}</option>
-        </select> 
-        <button>Enviar</button>
-    </div>
-</form> -->
 
 <form (ngSubmit)="saveProgram()" [formGroup]="programForm">
     <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+        
         <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
             <div class="max-w-md mx-auto">
                 <div class="flex items-center">
                     <div class="block font-semibold text-3x1 self-start text-gray-700">
-                        <h2 class="leading-relaxed">Nuevo programa</h2>
                     </div>
+                    <div class="w-full py-1">
+                        <div class="flex">
+                          <div class="w-1/2">
+                            <div class="relative mb-2">
+                              <div class="w-10 h-10 mx-auto bg-green-500 rounded-full text-lg text-white flex items-center">
+                                <span class="material-icons text-center text-white w-full">
+                                    add
+                                </span>
+                              </div>
+                            </div>
+                            <div class="text-xs text-center md:text-base">Agregar programa</div>
+                          </div>
+                          <div class="w-1/2">
+                            <div class="relative mb-2">
+                              <div class="absolute flex align-center items-center align-middle content-center" style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
+                                <div class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
+                                  <div class="w-0 bg-green-300 py-1 rounded" style="width: 50%;"></div>
+                                </div>
+                              </div>
+                      
+                              <div class="w-10 h-10 mx-auto bg-white border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
+                                <span class="material-icons text-center text-gray-600 w-full">
+                                    post_add
+                                </span>
+                              </div>
+                            </div>
+                      
+                            <div class="text-xs text-center md:text-base">Actividades</div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
                 <div class="divide-y divide-gray-200">
                     <div class="py-4 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                         <div class="flex flex-col">
                             <label class="leading-loose">Selecciona una carrera</label>
-                            <select name="" id="" formControlName="carreraId"
+                            <select name="" id="" formControlName="carreraId" 
                                 class="px-4 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600">
                                 <option value="{{ item.id }}" *ngFor="let item of carreras">
                                     {{ item.nombre }}

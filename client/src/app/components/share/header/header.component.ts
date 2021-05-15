@@ -11,12 +11,14 @@ export class HeaderComponent implements OnInit {
   rol = localStorage.getItem('rol');
   constructor(
     private router: Router,
-  ) {}
+  ) {
+    
+  }
   ngOnInit(): void {
-    console.log(this.rol);
+
   }
   logout(){
     localStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/homepage']);
   }
 }

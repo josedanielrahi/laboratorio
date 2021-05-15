@@ -1,6 +1,7 @@
 import { UsuarioService } from './../../../service/usuario.service';
 import { ProfesorService } from './../../../service/profesor.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,8 +13,11 @@ export class DashboardComponent implements OnInit {
   usuarios : any;
   administradores : any;
   constructor(
-    private usuarioSvc : UsuarioService,
-  ) { }
+    private usuarioSvc: UsuarioService,
+    private router: Router,
+  ) { 
+    
+  }
 
   ngOnInit(): void {
     this.status();

@@ -10,7 +10,22 @@ use Illuminate\Support\Facades\DB;
 class ProgramaController extends Controller
 {
     //
-
+    public function updatePrograma (Request $request, $id){
+        $query =  Programa::find($id);
+        if (is_null($query)) {
+            return response()->json(['message' => 'Elemento no encontrado'], 404);
+        }
+        $query->update($request->all());
+        return response($query, 201);
+    }
+    public function deletePrograma($id){
+        $carrera = Programa::find($id);
+        if (is_null($carrera)) {
+            return response()->json(['message' => 'Elemento no encontrado'], 404);
+        }
+        $carrera->delete();
+        return response()->json(null, 204);
+    }
     public function getSemestres()
     {
         $query = DB::table('semestre')->get();
@@ -46,7 +61,7 @@ class ProgramaController extends Controller
         $query = DB::table('detalle_programa AS d')
             ->join('laboratorio AS l', 'd.laboratorioId', '=', 'l.id')
             ->where('d.programaId', '=', $id)
-            ->select('d.id AS id_detalle', 'd.practica_no','d.practica_nombre','d.fechas','d.objetivo','d.laboratorioId','d.programaId','l.nombre')
+            ->select('d.id AS id_detalle', 'd.practica_no', 'd.practica_nombre', 'd.fechas', 'd.objetivo', 'd.laboratorioId', 'd.programaId', 'l.nombre')
             ->get();
         if (is_null($query)) {
             return response()->json(["message" => "Elemento no encontrado"], 404);
@@ -61,6 +76,23 @@ class ProgramaController extends Controller
         }
         $profesor->delete();
         return response()->json(null, 204);
+    }
+    public function lastInsertUsr($id)
+    {
+        $last = DB::table('programa AS p')
+            ->select('p.id')
+            ->where('p.profesorId','=', $id)
+            ->orderby('created_at','DESC')
+            ->take(1)
+            ->get();
+        return response()->json($last, 201);
+    }
+    public function getProgramaByIdValue($id){
+        $programa =  Programa::find($id);
+        if (is_null($programa)) {
+            return response()->json(['message' => 'Elemento no encontrado'], 404);
+        }
+        return response($programa, 200);
     }
     public function getProgramaById($id)
     {
