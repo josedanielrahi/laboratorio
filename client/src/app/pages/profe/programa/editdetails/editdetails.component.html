@@ -1,0 +1,88 @@
+
+
+<div class="container max-w-6xl px-5 mx-auto mt-2">
+<form (ngSubmit)="updateDetails()" [formGroup]="editForm">
+    <div class="relative py-1 sm:max-w-xl sm:mx-xl">
+        <div class="bg-white shadow rounded-3xl sm:p-5">
+            <div class="max-w-md mx-auto">
+                <div class="flex items-center">
+                    <div class="block font-semibold text-3x1 self-start text-gray-700">
+
+                    </div>
+                    <div class="w-full py-1">
+                        <div class="flex">
+                            <div class="w-full">
+                                <div class="relative mb-2">
+                                    <div
+                                        class="w-10 h-10 mx-auto bg-green-500 rounded-full text-lg text-white flex items-center">
+                                        <span class="material-icons text-center text-white w-full">
+                                            edit
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-center md:text-base">Editar actividad</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divide-gray-200">
+                    <div
+                        class="py-4 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                        <div class="flex space-x-5 mt-3">
+                            <div class="flex flex-col">
+                                <label class="leading-loose">No. de practica</label>
+                                <input type="number" name="" id="" formControlName="practica_no" [value]="register?.practica_no"
+                                    class="px-8 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600" />
+                            </div>
+
+                            <div class="flex flex-col">
+                                <label class="leading-loose">Laboratorio</label>
+                                <select name="" id="" formControlName="laboratorioId" [value]="register?.laboratorioId"
+                                    class="px-8 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600">
+                                    <option value="{{ item.id }}" *ngFor="let item of laboratorios"> 
+                                        {{ item.nombre }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Nombre</label>
+                            <input type="text" name="" id="" formControlName="practica_nombre" [value]="register?.practica_nombre"
+                                class="px-8 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600" />
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Fechas</label>
+                            <textarea name="" formControlName="fechas" id="" cols="10" rows="3" [value]="register?.fechas"
+                                placeholder="03-Marzo-2010, 10-Marzo-2021"
+                                class="px-4 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600"></textarea>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Objetivo</label>
+                            <textarea name="" formControlName="objetivo" id="" cols="10" rows="3" [value]="register?.objetivo"
+                                placeholder=""
+                                class="px-4 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600"></textarea>
+                        </div>
+
+
+                    </div>
+                    <div class=" flex items-center">
+                        <a class="flex justify-center items-center w-full"
+                            [routerLink]="['/profhome']">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            Cancelar
+                        </a>
+                        <button
+                            class="bg-gradient-to-r from-green-400 to-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>

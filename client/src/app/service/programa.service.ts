@@ -37,4 +37,13 @@ export class ProgramaService {
   public updatePrograma(form,id:any){
     return this.http.put(`${this.base}updateprograma/${id}`,form);
   }
+  public getDetailsById(id:any){
+    return this.http.get(`${this.base}detailsById/${id}`)
+  }
+  public updateDetails(form,id:any){
+    return this.http.put(`${this.base}updatedetails/${id}`,form);
+  }
+  public asistencia(id:any){
+    return this.http.get(`${this.base}lista/${id}`);
+  }
 }

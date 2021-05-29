@@ -71,6 +71,12 @@ Route::get('progrmaById/{id}', 'App\Http\Controllers\ProgramaController@getProgr
 Route::get('progrmaByIdValue/{id}', 'App\Http\Controllers\ProgramaController@getProgramaByIdValue');
 Route::get('lastInsertUsr/{id}', 'App\Http\Controllers\ProgramaController@lastInsertUsr');
 Route::put('updateprograma/{id}','App\Http\Controllers\ProgramaController@updatePrograma');
+Route::get('detailsById/{id}','App\Http\Controllers\ProgramaController@detailsById');
+Route::put('updatedetails/{id}','App\Http\Controllers\ProgramaController@updateDetails');
+Route::get('lista/{id}','App\Http\Controllers\ListaController@getList');
+Route::get('alumno/{mat}','App\Http\Controllers\ListaController@alumno');
+Route::post('addlista','App\Http\Controllers\ListaController@addLista');
+Route::post('addestudiante','App\Http\Controllers\ListaController@addAlumno');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

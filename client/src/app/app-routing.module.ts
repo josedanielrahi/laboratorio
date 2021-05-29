@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'detailsprog', redirectTo: '/profhome', pathMatch: 'full'},
   {path: 'newdetalle', redirectTo: '/profhome', pathMatch: 'full'},
   {path: 'editprog', redirectTo: '/profhome', pathMatch: 'full'},
+  {path: 'lista', redirectTo: '/profhome', pathMatch: 'full'},
   {
     path: 'dashboard',
     loadChildren: () =>
@@ -27,6 +28,8 @@ const routes: Routes = [
   { path: 'detailsprog/:id', loadChildren: () => import('./pages/profe/programa/detalle/detalle.module').then(m => m.DetalleModule) },
   { path: 'newdetalle/:id', loadChildren: () => import('./pages/profe/programa/newdetalle/newdetalle.module').then(m => m.NewdetalleModule) },
   { path: 'editprog/:id', loadChildren: () => import('./pages/profe/programa/editprograma/editprograma.module').then(m => m.EditprogramaModule) },
+  { path: 'editdetails/:id', loadChildren: () => import('./pages/profe/programa/editdetails/editdetails.module').then(m => m.EditdetailsModule) },
+  { path: 'lista/:id', loadChildren: () => import('./pages/profe/list/list.module').then(m => m.ListModule) },
 ];
 
 @NgModule({

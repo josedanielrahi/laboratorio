@@ -1,0 +1,136 @@
+<div class="container max-w-6xl px-5 mx-auto mt-2">
+    <div class="text-center text-gray-700 p-2">
+        <div class="text-5xl font-dark font-bold">Pase de lista!</div>
+        <div class="items-center flex flex-col">
+            <form (ngSubmit)="saveLista()" [formGroup]="matriculaForm">
+                <div class="w-full">
+                    <div class="text-xl">
+                        <label class="leading-loose text-gray-600">Matricula</label>
+                        <input type="number" formControlName="matricula"
+                            class="px-8 py-2 border focus:ring-gray-600 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600" />
+
+                        <div *ngIf="matriculaForm.get('matricula').errors && matriculaForm.get('matricula').touched">
+                            <p *ngIf="matriculaForm.get('matricula').hasError('required')">
+                                <span
+                                    class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                                    Requieres completar este campo!
+                                </span>
+                            </p>
+                            <p *ngIf="matriculaForm.get('matricula').hasError('maxlength')">
+                                <span
+                                    class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                                    Una matricula tiene un total de 8 digitos !
+                                </span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="w-full">
+                    <div class="text-sm">
+                        <label class="leading-loose text-gray-600">Obsevacion</label>
+                        <input type="text" formControlName="observacion"
+                            class="px-8 py-2 border focus:ring-gray-600 focus:border-green-500 w-full sm:text-sm border-grey-300 rounded-md focus:outline-none text-gray-600" />
+                    </div>
+                </div>
+                <div class="w-full">
+                    <button [disabled]="matriculaForm.invalid"
+                        class="mt-3 bg-gradient-to-r from-green-400 to-blue-500 justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="items-center flex flex-col" *ngIf="existe==0">
+            <form (ngSubmit)="saveAlumno()" [formGroup]="alumnoForm">
+                <div class="w-full">
+                    <div class="text-xl">
+                        <h1 class="font-dark font-bold text-2xl">No se encontro un alumno asociado a la matricula
+                            <b>{{this.mat}}</b></h1>
+                        <p>Completa el formulario para agrergar un alumno con esa matricula</p>
+                        <label class="leading-loose text-gray-600">Nombre o nombres</label>
+                        <input type="text" formControlName="nombre"
+                            class="px-8 py-2 border focus:ring-gray-600 w-full sm:text-xs border-grey-300 rounded-md focus:outline-none text-gray-600" />
+                        <div *ngIf="alumnoForm.get('nombre').errors && alumnoForm.get('nombre').touched">
+                            <p *ngIf="alumnoForm.get('nombre').hasError('required')">
+                                <span
+                                    class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                                    Requieres completar este campo!
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-xl">
+                        <label class="leading-loose text-gray-600">Apellidos</label>
+                        <input type="text" formControlName="apellidos"
+                            class="px-8 py-2 border focus:ring-gray-600 w-full sm:text-xs border-grey-300 rounded-md focus:outline-none text-gray-600" />
+                        <div *ngIf="alumnoForm.get('apellidos').errors && alumnoForm.get('apellidos').touched">
+                            <p *ngIf="alumnoForm.get('apellidos').hasError('required')">
+                                <span
+                                    class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                                    Requieres completar este campo!
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full p-4">
+                    <button class="flex justify-center items-center w-full" (click)="cancelar()">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        Cancelar
+                    </button>
+                    <button [disabled]="alumnoForm.invalid"
+                        class="mt-3 bg-gradient-to-r from-green-400 to-blue-500 justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="inline-block min-w-full shadow rounded-lg">
+        <table class="min-w-full leading-normal bg-black mt-2">
+            <thead class="">
+                <tr>
+                    <th class="bg-black px-3 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                        Nombre del alumno
+                    </th>
+                    <th class="bg-black px-3 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                        Matricula
+                    </th>
+                    <th class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                        Entrada
+                    </th>
+                    <th class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                        Observaciones
+                    </th>
+                    <th class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of estuandtes">
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{ item.nombre}} {{item.apellidos}}</p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{ item.matricula}}</p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{ item.created_at}}</p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{ item.observaciones}}</p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{ item.objetivo}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,8 +1,7 @@
-import  Swal  from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { ProfesorService } from 'src/app/service/profesor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
 
 @Component({
   selector: 'app-detalle',
@@ -29,7 +28,9 @@ export class DetalleComponent implements OnInit {
       }
     });
   }
-
+  goedit(id:any){
+    this.router.navigate(['editdetails/',id]);
+  }
   getDetailsProgam(id: any) {
     this.profesorSvc.detailsProgramaById(id).subscribe((res) => {
       this.programas = res;
@@ -38,34 +39,32 @@ export class DetalleComponent implements OnInit {
   getPrograma(id: any) {
     this.profesorSvc.programaById(id).subscribe((res) => {
       this.dataprograma = res;
-      console.log(this.dataprograma);
     });
   }
-  goToAddActiviti(){
-    this.id=this.route.snapshot.params.id;
-    this.router.navigate(['newdetalle/',this.id]);
+  goToAddActiviti() {
+    this.id = this.route.snapshot.params.id;
+    this.router.navigate(['newdetalle/', this.id]);
   }
-  delete(id:any){
+  delete(id: any) {
     Swal.fire({
       title: 'Estas seguro que lo quieres eliminar?',
-      text: "Esta operacion es irrebersible!",
+      text: 'Esta operacion es irrebersible!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Confirmar!',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.profesorSvc.deleteDetails(id).subscribe(res =>{
+        this.profesorSvc.deleteDetails(id).subscribe((res) => {
           this.ngOnInit();
         });
-        Swal.fire(
-          'Eliminado!',
-          'Operacion realizada con exito.',
-          'success'
-        )
+        Swal.fire('Eliminado!', 'Operacion realizada con exito.', 'success');
       }
-    })
+    });
+  }
+  list(id: any){
+    this.router.navigate(['lista',id]);
   }
 }

@@ -103,6 +103,7 @@ export class EditprogramaComponent implements OnInit {
   getProgrma(id: any) {
     this.programaSvc.progeama(id).subscribe((res) => {
       this.register = res;
+      console.log(this.register)
     });
   }
   initForm(): void {
