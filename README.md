@@ -29,7 +29,7 @@ _Manejadores de dependencias_
 _Instalacion_
 
 <p><em>Clonar el repositorio para utilizarlo localmente</em></p>
-<pre><code>https://github.com/josedanielrahi/proyecto.git
+<pre><code>https://github.com/josedanielrahi/proyecto.git</code></pre>
 
 
 ### Autor ✒️
