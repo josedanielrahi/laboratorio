@@ -24,8 +24,8 @@ _Herramientas de desarrllo_
 _Manejadores de dependencias_
 
 - [Composser](https://getcomposer.org/) - Application Level package
-- [NPM](https://www.npmjs.com/) - Node Package Manager
-https://img.shields.io/npm/v/ngx-pagination?style=for-the-badge
+- [NPM](https://img.shields.io/npm/v/ngx-pagination?style=for-the-badge) - Node Package Manager
+
 
 
 ### Autor ✒️
