@@ -24,10 +24,14 @@ _Herramientas de desarrllo_
 _Manejadores de dependencias_
 
 - [Composser](https://getcomposer.org/) - Application Level package
-- [NPM]  - Node Package Manager
+- [NPM](https://www.npmjs.com/)- Node Package Manager
+
+_Instalacion_
+
+<p><em>Clonar el repositorio para utilizarlo localmente</em></p>
+<pre><code>https://github.com/josedanielrahi/proyecto.git
 
 
-<li>Chrome Web Store extension rating: <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/7d880f217d558a5183c9af2332c2517b00a6c4ff0b29297bd6881dd5bf867887/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f726174696e672d2545322539382538352545322539382538352545322539382538352545322539382538352545322539382538362d627269676874677265656e"><img src="https://camo.githubusercontent.com/7d880f217d558a5183c9af2332c2517b00a6c4ff0b29297bd6881dd5bf867887/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f726174696e672d2545322539382538352545322539382538352545322539382538352545322539382538352545322539382538362d627269676874677265656e" alt="rating" data-canonical-src="https://img.shields.io/badge/rating-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86-brightgreen" style="max-width:100%;"></a></li>
 ### Autor ✒️
 
 - **José Daniel Ramirez Hinojosa**
