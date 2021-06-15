@@ -11,8 +11,6 @@ import { HeaderComponent } from './components/share/header/header.component';
 import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 
-
-
 @NgModule({
   declarations: [AppComponent, CardComponent, HeaderComponent],
   imports: [

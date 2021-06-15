@@ -1,3 +1,4 @@
+import  Swal  from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ProfesorService } from 'src/app/service/profesor.service';
@@ -32,8 +33,22 @@ export class ListComponent implements OnInit {
     console.log('Edit');
   }
   goToDelete(id: any) {
-    return this.profesoresSvc.deleteProf(id).subscribe((res) => {
-      this.getProf();
+    Swal.fire({
+      title: 'Estas seguro que lo quieres eliminar?',
+      text: 'Esta operacion es irrebersible!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar!',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.profesoresSvc.deleteProf(id).subscribe((res) => {
+         this.ngOnInit();
+        });
+        Swal.fire('Eliminado!', 'Operacion realizada con exito.', 'success');
+      }
     });
   }
 

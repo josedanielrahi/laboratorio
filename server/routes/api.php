@@ -31,13 +31,16 @@ Route::delete('/deletecarrera/{id}', 'App\Http\Controllers\CarreraController@del
 
 
 //Roles
-Route::post('/addrol', 'App\Http\Controllers\RolesController@addrol');
-Route::put('/updaterol/{rolId}', 'App\Http\Controllers\RolesController@updaterol');
-Route::get('/rol', 'App\Http\Controllers\RolesController@getrol');
+Route::post('addrol', 'App\Http\Controllers\RolesController@addrol');
+Route::put('updaterol/{rolId}', 'App\Http\Controllers\RolesController@updaterol');
+Route::get('rol', 'App\Http\Controllers\RolesController@getrol');
 
 //laboratorios
-Route::post('/addlab', 'App\Http\Controllers\LaboratorioController@addLaboratorio');
-Route::get('/laboratorio', 'App\Http\Controllers\LaboratorioController@getLaboratorio');
+Route::post('addlab', 'App\Http\Controllers\LaboratorioController@addLaboratorio');
+Route::get('laboratorio', 'App\Http\Controllers\LaboratorioController@getLaboratorio');
+Route::get('labdetails', 'App\Http\Controllers\LaboratorioController@labEdificio');
+Route::get('edificios', 'App\Http\Controllers\LaboratorioController@getEdificios');
+Route::get('labByIdEdificio/{id}', 'App\Http\Controllers\LaboratorioController@labsByEdificio');
 
 //Usuario
 Route::get('/countusr', 'App\Http\Controllers\UsuariosController@conuntUsr');
@@ -46,8 +49,10 @@ Route::get('/usuarios', 'App\Http\Controllers\UsuariosController@getUsr');
 Route::get('/usrrol', 'App\Http\Controllers\UsuariosController@getUsrRol');
 Route::get('/countadm', 'App\Http\Controllers\UsuariosController@cantAdm');
 Route::get('/countprof', 'App\Http\Controllers\UsuariosController@cantProf');
-Route::put('deleteusr/{id}', 'App\Http\Controllers\UsuariosController@deleUsr');
+Route::delete('deleteusr/{id}', 'App\Http\Controllers\UsuariosController@deleUsr');
 Route::put('validate/{usr}/{psw}', 'App\Http\Controllers\UsuariosController@validateUsr');
+Route::get('usuarioByid/{id}','App\Http\Controllers\UsuariosController@UsrById');
+Route::put('updateusr/{id}','App\Http\Controllers\UsuariosController@updadateUsr');
 
 //Profesor
 Route::get('profesores', 'App\Http\Controllers\ProfesorController@getProfesores');

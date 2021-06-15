@@ -8,7 +8,12 @@ import { environment } from 'src/environments/environment';
 export class UsuarioService {
   base = environment.base;
   constructor(private httpClient: HttpClient) {}
-
+  edificios(){
+    return this.httpClient.get(`${this.base}edificios`);
+  }
+  labsId(id){
+    return this.httpClient.get(`${this.base}labByIdEdificio/${id}`);
+  }
   insertUsr(form) {
     return this.httpClient.post(`${this.base}addusr`, form);
   }
@@ -27,10 +32,16 @@ export class UsuarioService {
   cantidadprof() {
     return this.httpClient.get(`${this.base}countprof`);
   }
-  deleteusr(id){
-    return this.httpClient.put(`${this.base}deleteusr/${id}`,null)
+  deleteusr(id) {
+    return this.httpClient.delete(`${this.base}deleteusr/${id}`);
   }
-  validate(usr,psw){
-    return this.httpClient.put(`${this.base}validate/${usr}/${psw}`,null);
+  validate(usr, psw) {
+    return this.httpClient.put(`${this.base}validate/${usr}/${psw}`, null);
+  }
+  getUsrById(id) {
+    return this.httpClient.get(`${this.base}usuarioByid/${id}`);
+  }
+  updateUsr(id, form) {
+    return this.httpClient.put(`${this.base}updateusr/${id}`, form);
   }
 }

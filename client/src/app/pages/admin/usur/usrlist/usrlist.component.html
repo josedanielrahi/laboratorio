@@ -1,13 +1,14 @@
-<h1 class="text-center text-4xl p-2">Listado de usuarios</h1>
-<a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" class="bg-gradient-to-r from-green-400 to-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none" >Regresar al dashboard</a>
-<div class="md:container md:mx-auto">
+
+
+<div class="container max-w-6xl px-5 mx-auto mt-2">
+    <h1 class="mt-2 mb-3 text-5xl font-dark font-bold text-gray-700 text-center">Programas asociados: </h1>
     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
         <div class="inline-block min-w-full shadow rounded-lg">
             <table class="min-w-full leading-normal bg-black">
                 <thead class="">
                     <tr>
                         <th class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
-                            User
+                            Nombre de usuario
                         </th>
                         <th class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
                             Rol
@@ -21,26 +22,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of usuarios">
+                    <tr *ngFor="let item of usuarios | paginate: { itemsPerPage: 5, currentPage: actual }">
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">{{ item.usr }}</p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">{{ item.nombre}}</p>
+                            <p class="text-gray-900 whitespace-no-wrap text-red-700" *ngIf="item.nombre=='Profesor'"><span class="material-icons">square_foot</span>{{ item.nombre}}</p>
+                            <p class="text-gray-900 whitespace-no-wrap" *ngIf="item.nombre=='Administrador'"><span class="material-icons">admin_panel_settings</span>{{ item.nombre}}</p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">{{ item.created_at}}</p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <button
-                                class="mr-1 inline-block p-2 text-center text-white transition bg-blue-500 rounded-full shadow ripple hover:shadow-lg hover:bg-blue-600 "
-                                (click)="goToDetails(item.id)">
-                                <span class="material-icons">
-                                    info
-                                </span>
-                            </button>
-                            <button
-                            class="mr-1 inline-block p-2 text-center text-white transition bg-pink-500 rounded-full shadow ripple hover:shadow-lg hover:bg-pink-600 "
+                            class="mr-1 inline-block p-2 text-center text-white transition bg-green-500 rounded-full shadow ripple hover:shadow-lg hover:bg-green-600 "
                             (click)="goToEdit(item.id)">
                             <span class="material-icons">
                                edit
@@ -57,6 +52,10 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="p-3">
+                <pagination-controls [previousLabel]="'Anterior'" [nextLabel]="'Siguiente'" (pageChange)="actual = $event">
+                </pagination-controls>
+            </div>
         </div>
     </div>
 </div>

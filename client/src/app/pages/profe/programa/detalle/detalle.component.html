@@ -539,33 +539,30 @@
                                 <p class="text-gray-900 whitespace-no-wrap">{{ item.objetivo}}</p>
                             </td>
                             <td class="px-5 py-5 flex-between border-b border-gray-200 bg-white text-sm">
-                                <div
-                                class=" text-white items-center rounded-full px-1 mb-1 text-center bg-green-500">
-                                <!-- icons  -->
-                                <button (click)="goedit(item.id_detalle)">
-                                    <span class="material-icons-outlined p-1">
-                                        edit
-                                    </span>
-                                </button>
-                            </div>
-                            <div
-                            class=" text-white items-center rounded-full px-1 mb-1 text-center bg-red-500">
-                            <!-- icons  -->
-                            <button (click)="delete(item.id_detalle)">
-                                <span class="material-icons-outlined p-1">
-                                    delete
-                                </span>
-                            </button>
-                        </div>
-                        <div
-                        class=" text-white items-center rounded-full px-1 mb-1 text-center bg-blue-500">
-                        <!-- icons  -->
-                        <button (click)="list(item.id_detalle)">
-                            <span class="material-icons-outlined p-1">
-                                fact_check
-                            </span>
-                        </button>
-                    </div>
+                                <div class=" text-white items-center rounded-full px-1 mb-1 text-center bg-green-500">
+                                    <!-- icons  -->
+                                    <button (click)="goedit(item.id_detalle)">
+                                        <span class="material-icons-outlined p-1">
+                                            edit
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class=" text-white items-center rounded-full px-1 mb-1 text-center bg-red-500">
+                                    <!-- icons  -->
+                                    <button (click)="delete(item.id_detalle)">
+                                        <span class="material-icons-outlined p-1">
+                                            delete
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class=" text-white items-center rounded-full px-1 mb-1 text-center bg-blue-500">
+                                    <!-- icons  -->
+                                    <button (click)="list(item.id_detalle)">
+                                        <span class="material-icons-outlined p-1">
+                                            fact_check
+                                        </span>
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>

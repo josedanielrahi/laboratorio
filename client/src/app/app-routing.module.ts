@@ -9,6 +9,9 @@ const routes: Routes = [
   {path: 'newdetalle', redirectTo: '/profhome', pathMatch: 'full'},
   {path: 'editprog', redirectTo: '/profhome', pathMatch: 'full'},
   {path: 'lista', redirectTo: '/profhome', pathMatch: 'full'},
+  {path: 'fotesh-98', redirectTo: '/homepage', pathMatch: 'full'},
+  {path: 'usredit', redirectTo: '/homepage', pathMatch: 'full'},
+  {path: 'asistencia', redirectTo: '/dashboard', pathMatch: 'full'},
   {
     path: 'dashboard',
     loadChildren: () =>
@@ -30,6 +33,9 @@ const routes: Routes = [
   { path: 'editprog/:id', loadChildren: () => import('./pages/profe/programa/editprograma/editprograma.module').then(m => m.EditprogramaModule) },
   { path: 'editdetails/:id', loadChildren: () => import('./pages/profe/programa/editdetails/editdetails.module').then(m => m.EditdetailsModule) },
   { path: 'lista/:id', loadChildren: () => import('./pages/profe/list/list.module').then(m => m.ListModule) },
+  { path: 'fotesh-98/:id', loadChildren: () => import('./components/pdf/fotesh98/fotesh98.module').then(m => m.FOTESH98Module) },
+  { path: 'usredit/:id', loadChildren: () => import('./pages/admin/usur/usredit/usredit.module').then(m => m.UsreditModule) },
+  { path: 'asistencia/:id', loadChildren: () => import('./pages/admin/prof/asistencia/asistencia.module').then(m => m.AsistenciaModule) },
 ];
 
 @NgModule({

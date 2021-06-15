@@ -16,7 +16,7 @@ export class ProfesorService {
     return this.httpClient.get(`${this.base}profesores`);
   }
   deleteProf(id: any) {
-    return this.httpClient.put(`${this.base}deleteprof/${id}`, null);
+    return this.httpClient.delete(`${this.base}deleteprof/${id}`);
   }
   exist(id: any) {
     return this.httpClient.get(`${this.base}profesorByIdUsr/${id}`);

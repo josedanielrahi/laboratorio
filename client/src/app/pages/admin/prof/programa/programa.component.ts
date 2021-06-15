@@ -2,6 +2,7 @@ import { ProfesorService } from 'src/app/service/profesor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-programa',
   templateUrl: './programa.component.html',
@@ -37,6 +38,9 @@ export class ProgramaComponent implements OnInit {
     this.profesorSvc.detailsProgramaById(id).subscribe(res => {
       this.details=res;    
     });
+  }
+  list(id){
+    id == null ? this.router.navigate(['/dashboard']) : this.router.navigate(['asistencia',id])
   }
 
 }

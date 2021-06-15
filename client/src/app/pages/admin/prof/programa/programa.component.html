@@ -215,19 +215,58 @@
 
     <div *ngIf="programas?.length>0">
         <h1 class="text-center text-5xl font-dark font-bold p-2 text-gray-700">Detalles del programa:</h1>
-        <div class="md:grid md:grid-cols-3 md:space-y-0 space-y-1 p-4" *ngFor="let item of programas">
-            <div>
-                
-                <p class="text-gray-800 mb-1"><b>Carrera:</b> {{item.carreraNombre}}</p>
-                <p class="text-gray-800 mb-1"><b>Materia:</b> {{item.materia}}</p>
-                <p class="text-gray-800 mb-1"><b>Profesor:</b> {{item.nombre}} {{item.apellidos}}</p>
-                <p class="text-gray-800 mb-1"><b>Ciclo Escolar:</b> {{item.cicloNombre}}</p>
-            </div>
-            <div>
-                <p class="text-gray-800 mb-1"><b>Fecha:</b> {{item.created_at}}</p>
-                <p class="text-gray-800 mb-1"><b>Semestre:</b> {{item.semestreNombre}}</p>
-                <p class="text-gray-800 mb-1"><b>Turno:</b> {{item.turnoValue}}</p>
-                <p class="tetxt-gray-800 mb-1"><b>Horario: </b>{{item.horario}}</p>
+        <div class="sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 p-3 flex items-center justify-center"
+            *ngFor="let item of programas">
+            <div class="bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+                <div class="mt-8">
+                    <p class="text-xl font-semibold my-2">{{item.materia}}</p>
+                    <div class="flex space-x-2 text-gray-400 text-sm my-3">
+                        <!-- svg  -->
+                        <span class="material-icons-outlined">
+                            school
+                        </span>
+                        <p>{{item.carreraNombre}}</p>
+                    </div>
+                    <div class="flex space-x-2 text-gray-400 text-sm my-3">
+                        <!-- svg  -->
+                        <span class="material-icons-outlined">
+                            event
+                        </span>
+                        <p>{{item.cicloNombre}}</p>
+                    </div>
+                    <div class="flex space-x-2 text-gray-400 text-sm my-3">
+                        <!-- svg  -->
+                        <span class="material-icons-outlined">
+                            emoji_events
+                        </span>
+                        <p>{{item.semestreNombre}}</p>
+                    </div>
+                    <div class="flex space-x-2 text-gray-400 text-sm my-3">
+                        <!-- svg  -->
+                        <span class="material-icons-outlined" *ngIf="item.turnoValue=='Matutino'">
+                            light_mode
+                        </span>
+                        <span class="material-icons-outlined" *ngIf="item.turnoValue=='Vespertino'">
+                            dark_mode
+                        </span>
+                        <p>{{item.turnoValue}}</p>
+                    </div>
+
+                    <div class="flex space-x-2 text-gray-400 text-sm my-3">
+                        <!-- svg  -->
+                        <span class="material-icons-outlined">
+                            schedule
+                        </span>
+                        <p>{{item.horario}}</p>
+                    </div>
+                    <div class="flex space-x-2 text-gray-400 text-sm my-3">
+                        <!-- svg  -->
+                        <span class="material-icons-outlined">
+                            create_new_folder
+                        </span>
+                        <p>{{item.created_at}}</p>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -256,6 +295,10 @@
                                 class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
                                 Objetivo
                             </th>
+                            <th
+                                class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                                Asistencia
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -275,16 +318,22 @@
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">{{ item.objetivo}}</p>
                             </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class=" text-white items-center rounded-full px-1 mb-1 text-center bg-blue-500">
+                                    <!-- icons  -->
+                                    <button (click)="list(item.id_detalle)">
+                                        <span class="material-icons-outlined p-1">
+                                            fact_check
+                                        </span>
+                                    </button>
+                                </div>
+                            </td>
 
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <p class="justify-self-end">
-            <a [routerLink]="['/dashboard']"
-                class="w-full px-3 py-2 text-white bg-gradient-to-r from-green-400 to-blue-500 rounded-md focus:bg-indigo-600 focus:outline-none">Dashboard</a>
-        </p>
     </div>
 
 </div>

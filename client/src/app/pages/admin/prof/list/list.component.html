@@ -1,15 +1,7 @@
 <div class="md:container md:mx-auto">
-    <h1 class="text-center text-4xl p-2">Listado de profesores</h1>
+    <h1 class="text-center text-5xl font-dark font-bold text-gray-700 p-3">Listado de profesores</h1>
+    <p class="text-center">Se muestran todos los profesores que ya tiene completo su perfil</p>
 
-
-    <div class="md:grid md:grid-cols-4 md:space-y-0 space-y-1 p-4 ">
-        <p></p>
-        <p></p>
-        <p></p>
-        <p class="justify-self-end">
-            
-        </p>
-    </div>
 
     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
         <div class="inline-block min-w-full shadow rounded-lg">
@@ -37,16 +29,16 @@
                                     info
                                 </span>
                             </button>
-                            <button
+                            <!-- <button
                                 class="mr-1 inline-block p-2 text-center text-white transition bg-pink-500 rounded-full shadow ripple hover:shadow-lg hover:bg-pink-600 "
                                 (click)="goToEdit(item.id)">
                                 <span class="material-icons">
                                     edit
                                 </span>
-                            </button>
+                            </button> -->
                             <button
                                 class="mr-1 inline-block p-2 text-center text-white transition bg-red-500 rounded-full shadow ripple hover:shadow-lg hover:bg-red-600 "
-                                (click)="goToDelete(item.usrId)">
+                                (click)="goToDelete(item.id)">
                                 <span class="material-icons">
                                     delete
                                 </span>

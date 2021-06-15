@@ -1,0 +1,46 @@
+<div class="container max-w-6xl px-5 mx-auto mt-2">
+    <div *ngIf="estudiantes?.length==0">
+        <h1 class="text-center text-gray-600 font-bold font-dark text-5xl p-2">Aun no se encuentra un registro de asistencia para esta practica</h1>
+    </div>
+    <div *ngIf="estudiantes?.length>0">
+        <h1 class="text-center text-gray-600 font-bold font-dark text-5xl p-2">Lista de alumnos que asistieron.</h1>
+        <div class="inline-block min-w-full shadow rounded-lg">
+            <table class="min-w-full leading-normal bg-black mt-2">
+                <thead class="">
+                    <tr>
+                        <th class="bg-black px-3 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            Nombre del alumno
+                        </th>
+                        <th class="bg-black px-3 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            Matricula
+                        </th>
+                        <th class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            Entrada
+                        </th>
+                        <th class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            Observaciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of estudiantes">
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.nombre}} {{item.apellidos}}</p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.matricula}}</p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.created_at}}</p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.observaciones}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+  
+</div>

@@ -1,0 +1,101 @@
+<button (click)="downlad()">Descargar</button>
+
+
+
+
+
+<div   class="container max-w-6xl px-5 mx-auto mt-2">
+    <div class="" #content>
+        <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-2 mb-10">
+            <div class="bg-white overflow-hidden hover:bg-green-100 border border-black p-3 flex flex-row justify-center items-center">
+                <div class="m-2 text-justify text-sm ">
+                    <img src="http://lorempixel.com/150/150/" alt="" class="">
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden hover:bg-green-100 border border-black p-3">
+                <div class="m-2 text-justify text-sm">
+                    <h1 class="text-center text-2xl font-black mb-4">PROGRAMACIÓN DE PRÁCTICAS DE LABORATORIOS</h1>
+                    <h2 class="text-center text-lg">FO-TESH-98</h2>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden hover:bg-green-100 border border-black p-3 flex flex-row justify-center items-center">
+                <div class="m-2 text-justify text-sm">
+                    <img src="http://lorempixel.com/150/150/" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pdf" class="" *ngFor="let item of dataprograma" >
+        <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3">
+            <div class="bg-white overflow-hidden hover:bg-green-100 1 flex flex-row">
+                <div class="m-2 text-justify text-lg">
+                   <p><b>Carrera:</b> {{item.carreraNombre}}</p>
+                   <p><b>Materia: </b>{{item.materia}}</p>
+                   <p><b>Profresor: </b>{{item.nombre + item.apellidos}}</p>
+                   <p><b>Ciclo escolar: </b>{{item.cicloNombre}}</p>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden hover:bg-green-100 1">
+                <div class="m-2 text-justify text-lg">
+                    <p ><b>Fecha: </b>{{item.created_at}}</p>
+                    <p><b>Semestre: </b>{{item.semestreNombre}}</p>
+                    <p><b>Turno: </b>{{item.turnoValue}}</p>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden hover:bg-green-100 1 flex flex-row">
+                <div class="m-2 text-justify text-lg">
+                    <p><b>Horario: </b>{{item.horario}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto" *ngIf="programas?.length > 0">
+        <div class="inline-block min-w-full shadow rounded-lg">
+            <table class="min-w-full leading-normal bg-black">
+                <thead class="">
+                    <tr>
+                        <th
+                            class="bg-black px-3 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            No.
+                        </th>
+                        <th
+                            class="bg-black px-3 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            Fecha progrmada
+                        </th>
+                        <th
+                            class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            Laboratorio
+                        </th>
+                        <th
+                            class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            Nombre de la paractica
+                        </th>
+                        <th
+                            class="bg-black px-5 py-3 border-b-1 text-left text-xs text-white uppercase tracking-wider">
+                            Objetivo
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of programas">
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.practica_no}}</p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.fechas}}</p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.nombre}}</p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.practica_nombre}}</p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <p class="text-gray-900 whitespace-no-wrap">{{ item.objetivo}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
